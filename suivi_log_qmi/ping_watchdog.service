@@ -1,0 +1,14 @@
+[Unit]
+Description=Ping Watchdog - Surveillance réseau avec redémarrage automatique
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /usr/local/bin/ping_watchdog.sh
+Restart=always
+RestartSec=10
+User=root
+
+[Install]
+WantedBy=multi-user.target
